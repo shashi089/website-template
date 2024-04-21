@@ -1,0 +1,35 @@
+#infrastructure {
+    font-family: "Poppins", sans-serif;
+    position: relative;
+  }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    gap: 20px; /* Gap between grid items */
+  }
+  
+  .image-item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .image-item .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  @media screen and (max-width: 769px) {
+    #infrastructure {
+      background-size: 100% 90%;
+    }
+    
+  }
+  @media screen and (max-width: 426px) {
+    #infrastructure {
+      background-size: 100% 95%;
+    }
+   
+  }
+  
