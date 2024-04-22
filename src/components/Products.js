@@ -4,25 +4,18 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import casio2 from "../assets/casio/casio-ex403-eqb-800db-1adr-edifice.webp";
-import watch7 from "../assets/naviforce/624510cb85783.png";
-import watch9 from "../assets/casio/edifice-ed475-efs-s550db-1avudf-edifice.webp";
-
 import {
-  uspolo,
-  seiko,
-  citizen,
-  cruiser,
-  omax,
-  spectrum,
-  naviforce,
-  fastrack,
-  fitron,
-  danielklein,
-  titan,
-  blade,
-  fossil,
-} from "../assets/products";
+  machine1,
+  machine2,
+  machine3,
+  machine4,
+  machine5,
+  machine6,
+  machine7,
+  machine8,
+  machine9,
+  machine10,
+} from "../assets/machines";
 
 import { Container, Image } from "react-bootstrap";
 import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
@@ -31,87 +24,44 @@ const Products = () => {
   const images = [
     {
       id: 1,
-      image: casio2,
-      name: "Casio",
+      image: machine1,
     },
-
     {
       id: 2,
-      image: citizen,
-      name: "Citizen",
+      image: machine2,
     },
     {
       id: 3,
-      image: cruiser,
-      name: "Cruiser",
+      image: machine3,
     },
     {
       id: 4,
-      image: omax,
-      name: "Omax",
+      image: machine4,
     },
     {
       id: 5,
-      image: spectrum,
-      name: "Spectrum",
+      image: machine5,
     },
 
     {
       id: 6,
-      image: watch7,
-      name: "Naviforce",
+      image: machine6,
     },
     {
       id: 7,
-      image: fitron,
-      name: "Fitron",
+      image: machine7,
     },
     {
       id: 8,
-      image: titan,
-      name: "Titan",
+      image: machine8,
     },
     {
       id: 9,
-      image: fastrack,
-      name: "Fastrack",
+      image: machine9,
     },
     {
       id: 10,
-      image: danielklein,
-      name: "Daniel klein",
-    },
-    {
-      id: 11,
-      image: uspolo,
-      name: "U.S. Polo",
-    },
-    {
-      id: 12,
-      image: fossil,
-      name: "Fossil",
-    },
-
-    {
-      id: 13,
-      image: seiko,
-      name: "Seiko",
-    },
-
-    {
-      id: 14,
-      image: blade,
-      name: "Blade",
-    },
-    {
-      id: 15,
-      image: watch9,
-      name: "Casio",
-    },
-    {
-      id: 16,
-      image: naviforce,
-      name: "Naviforce",
+      image: machine10,
     },
   ];
   const PreviousBtn = (props) => {
@@ -135,7 +85,7 @@ const Products = () => {
     autoplaySpeed: 2000,
     dots: true,
     infinite: false,
-    slidesToShow: 4,
+    slidesToShow: 3,
     responsive: [
       {
         breakpoint: 326,
@@ -173,15 +123,25 @@ const Products = () => {
   };
   return (
     <div className="my-5 py-5">
-      <Container id="products" className="pt-5">
-        <h1 className="text-center py-5 ">PRODUCTS</h1>
+      <Container id="products">
+        <h1 className="text-center py-3 ">MACHINE INFRASTRUCTURE</h1>
+        <p className="pb-3">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. Lorem Ipsum is simply dummy
+          text of the printing and typesetting industry. Lorem Ipsum has been
+          the industry's standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type
+          specimen book.
+        </p>
+
         <div className="carousel">
           <Slider {...carouselProperties}>
             {images.map((val) => {
               return (
                 <div className="image-container2" key={val.id}>
                   <Image className="image" src={val.image} alt="" />
-                  <h5 className="pt-2">{val.name}</h5>
                 </div>
               );
             })}

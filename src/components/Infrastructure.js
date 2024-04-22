@@ -51,6 +51,14 @@ const Infrastructure = () => {
       <div id="infrastructure">
         <Container>
           <h1 className="text-center py-3 ">INFRASTRUCTURE</h1>
+
+          <div className="py-2 video-container">Video Player</div>
+          <p className="py-2">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.{" "}
+          </p>
           <div className="image-grid">
             {images.map((element, index) => (
               <div className="image-item" key={index}>

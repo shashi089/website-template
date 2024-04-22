@@ -10,6 +10,7 @@
   color: #111111;
 
 }
+
 #about .main-container:hover {
   transition: background-color 0.8s ease;
   color: #111111;
@@ -32,6 +33,7 @@
 }
 #aboutmain .brand-image{
   width: 100%;
+  border-radius: 15px;
 }
 /* #about .image {
   transform: rotate(180deg);

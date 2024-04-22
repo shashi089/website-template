@@ -1,0 +1,10 @@
+export { default as machine1 } from "./SPP_6910 copy.jpg";
+export { default as machine2 } from "./SPP_6949 copy.jpg";
+export { default as machine3 } from "./SPP_6966 copy.jpg";
+export { default as machine4 } from "./SPP_6996 copy.jpg";
+export { default as machine5 } from "./SPP_7002 copy.jpg";
+export { default as machine6 } from "./SPP_7022 copy 2.jpg";
+export { default as machine7 } from "./SPP_7023 copy 2.jpg";
+export { default as machine8 } from "./SPP_7049 copy 2.jpg";
+export { default as machine9 } from "./SPP_7058 copy 2.jpg";
+export { default as machine10 } from "./SPP_7067 copy 2.jpg";
