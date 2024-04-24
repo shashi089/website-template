@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import OurBrands from "./components/OurBrands";
 import Infrastructure from "./components/Infrastructure";
-import Team from "./components/Team.js";
 import Products from "./components/Products.js";
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
       <Infrastructure />
       <Products />
       <OurBrands />
-      <Team />
       <Footer />
     </div>
   );

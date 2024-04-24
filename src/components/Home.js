@@ -1,7 +1,5 @@
 import React from "react";
 import "./Home.css";
-// import { Carousel } from 'react-bootstrap';
-import bg4 from "../assets/SPP_6889 copy.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Image } from "react-bootstrap";
@@ -25,22 +23,16 @@ const Home = () => {
                   specimen book.
                 </h5>
               </div>
-              <Image className="brand-image" src={bg4} alt="" />
+              <Image
+                className="brand-image"
+                src={
+                  "https://res.cloudinary.com/dyyhowttt/image/upload/v1713963891/JPLaboratories/SPP_6889_copy_vib6pt.jpg"
+                }
+                alt=""
+              />
             </div>
           </div>
         </div>
-        {/* <div className="header_height">
-          <div className="carousel2">
-            <div className="image-container">
-              <h1>Explore new possibilities with us</h1>
-              <h5>
-                If you want to explore new possibilities to your esteemed
-                company...
-              </h5>
-              <Image className="brand-image" src="{bg4}" alt="" />
-            </div>
-          </div>
-        </div> */}
       </section>
     </div>
   );

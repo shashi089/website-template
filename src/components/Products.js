@@ -4,19 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import {
-  machine1,
-  machine2,
-  machine3,
-  machine4,
-  machine5,
-  machine6,
-  machine7,
-  machine8,
-  machine9,
-  machine10,
-} from "../assets/machines";
-
 import { Container, Image } from "react-bootstrap";
 import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 
@@ -24,44 +11,54 @@ const Products = () => {
   const images = [
     {
       id: 1,
-      image: machine1,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958768/JPLaboratories/Machines/SPP_6910_copy_fsyslq.jpg",
     },
     {
       id: 2,
-      image: machine2,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958804/JPLaboratories/Machines/SPP_6949_copy_bpbv5d.jpg",
     },
     {
       id: 3,
-      image: machine3,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958782/JPLaboratories/Machines/SPP_6996_copy_w6vbmz.jpg",
     },
     {
       id: 4,
-      image: machine4,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958775/JPLaboratories/Machines/SPP_6966_copy_mmtyjt.jpg",
     },
     {
       id: 5,
-      image: machine5,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958795/JPLaboratories/Machines/SPP_7002_copy_voojkp.jpg",
     },
 
     {
       id: 6,
-      image: machine6,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958775/JPLaboratories/Machines/SPP_7022_copy_2_shcukn.jpg",
     },
     {
       id: 7,
-      image: machine7,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958778/JPLaboratories/Machines/SPP_7023_copy_2_vyxtga.jpg",
     },
     {
       id: 8,
-      image: machine8,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958782/JPLaboratories/Machines/SPP_7049_copy_2_eepk0g.jpg",
     },
     {
       id: 9,
-      image: machine9,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958780/JPLaboratories/Machines/SPP_7058_copy_2_rzbd4t.jpg",
     },
     {
       id: 10,
-      image: machine10,
+      image:
+        "https://res.cloudinary.com/dyyhowttt/image/upload/v1713958783/JPLaboratories/Machines/SPP_7067_copy_2_loma0v.jpg",
     },
   ];
   const PreviousBtn = (props) => {
