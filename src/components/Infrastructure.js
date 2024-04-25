@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Container, Image } from "react-bootstrap";
-import { Audio } from "react-loader-spinner";
+import { Puff } from "react-loader-spinner";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"; // Import Loader CSS
 import "./Infrastructure.css";
 import ImageViewer from "react-simple-image-viewer";
@@ -11,15 +11,6 @@ const Infrastructure = () => {
   const [loading, setLoading] = useState(true); // State to manage loading
   const [imagesLoaded, setImagesLoaded] = useState(0); // Counter to track loaded images
 
-  const openImageViewer = useCallback((index) => {
-    setCurrentImage(index);
-    setIsViewerOpen(true);
-  }, []);
-
-  const closeImageViewer = () => {
-    setCurrentImage(0);
-    setIsViewerOpen(false);
-  };
   const images = [
     {
       id: 1,
@@ -63,11 +54,23 @@ const Infrastructure = () => {
     },
   ];
   const imageUrls = images.map((image) => image.image);
-  const handleImageLoad = () => {
-    setImagesLoaded((prevCount) => prevCount + 1);
-    if (imagesLoaded === images.length - 1) {
+
+  useEffect(() => {
+    if (imagesLoaded === images.length) {
       setLoading(false); // Set loading to false when all images are loaded
     }
+  }, [imagesLoaded, images.length]);
+  const openImageViewer = useCallback((index) => {
+    setCurrentImage(index);
+    setIsViewerOpen(true);
+  }, []);
+
+  const closeImageViewer = () => {
+    setCurrentImage(0);
+    setIsViewerOpen(false);
+  };
+  const handleImageLoad = () => {
+    setImagesLoaded((prevCount) => prevCount + 1);
   };
   return (
     <div id="infrastructuremain" className="py-5">
@@ -76,14 +79,14 @@ const Infrastructure = () => {
           <h1 className="text-center py-3 ">INFRASTRUCTURE</h1>
           {loading && (
             <div className="loader-container">
-              <Audio
-                height="80"
-                width="80"
-                radius="9"
-                color="green"
-                ariaLabel="loading"
-                wrapperStyle
-                wrapperClass
+              <Puff
+                visible={true}
+                height="100"
+                width="100"
+                color="#ff5500"
+                ariaLabel="puff-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
               />
             </div>
           )}

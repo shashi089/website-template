@@ -41,7 +41,11 @@
   z-index: 1;
 }
 
-
+.loader-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (max-width: 1025px) {
   .home_section {
     background-size: 100% 110%;

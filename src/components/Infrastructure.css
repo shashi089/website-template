@@ -8,6 +8,11 @@
     gap: 20px; /* Gap between grid items */
     cursor: pointer;
   }
+  .loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .video-container{
     display: flex;
