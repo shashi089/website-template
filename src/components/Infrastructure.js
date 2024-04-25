@@ -9,7 +9,6 @@ const Infrastructure = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [loading, setLoading] = useState(true); // State to manage loading
-  const [imagesLoaded, setImagesLoaded] = useState(0); // Counter to track loaded images
 
   const images = [
     {
@@ -55,11 +54,6 @@ const Infrastructure = () => {
   ];
   const imageUrls = images.map((image) => image.image);
 
-  useEffect(() => {
-    if (imagesLoaded === images.length) {
-      setLoading(false); // Set loading to false when all images are loaded
-    }
-  }, [imagesLoaded, images.length]);
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
     setIsViewerOpen(true);
@@ -69,9 +63,13 @@ const Infrastructure = () => {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
-  const handleImageLoad = () => {
-    setImagesLoaded((prevCount) => prevCount + 1);
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000); // 3000 milliseconds = 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div id="infrastructuremain" className="py-5">
       <div id="infrastructure">
@@ -90,35 +88,42 @@ const Infrastructure = () => {
               />
             </div>
           )}
-          <div className="py-2 video-container">Video Player</div>
-          <p className="py-2">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.{" "}
-          </p>
-          <div className="image-grid">
-            {images.map((element, index) => (
-              <div className="image-item" key={index}>
-                <Image
-                  key={index}
-                  className="image"
-                  src={element.image}
-                  alt={`Image ${index + 1}`}
-                  onClick={() => openImageViewer(index)}
-                  onLoad={handleImageLoad}
+          <div
+            className={` ${
+              loading
+                ? "infrastructure-container-hidden"
+                : "infrastructure-container"
+            }`}
+          >
+            <div className="py-2 video-container">Video Player</div>
+            <p className="py-2">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book.{" "}
+            </p>
+            <div className="image-grid">
+              {images.map((element, index) => (
+                <div className="image-item" key={index}>
+                  <Image
+                    key={index}
+                    className="image"
+                    src={element.image}
+                    alt={`Image ${index + 1}`}
+                    onClick={() => openImageViewer(index)}
+                  />
+                </div>
+              ))}
+              {isViewerOpen && (
+                <ImageViewer
+                  src={imageUrls}
+                  currentIndex={currentImage}
+                  disableScroll={false}
+                  closeOnClickOutside={true}
+                  onClose={closeImageViewer}
                 />
-              </div>
-            ))}
-            {isViewerOpen && (
-              <ImageViewer
-                src={imageUrls}
-                currentIndex={currentImage}
-                disableScroll={false}
-                closeOnClickOutside={true}
-                onClose={closeImageViewer}
-              />
-            )}
+              )}
+            </div>
           </div>
         </Container>
       </div>

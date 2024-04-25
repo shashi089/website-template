@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Product.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Puff } from "react-loader-spinner";
 import { Container, Image } from "react-bootstrap";
 import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 
 const Products = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // 3000 milliseconds = 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
   const images = [
     {
       id: 1,
@@ -122,27 +131,42 @@ const Products = () => {
     <div className="my-5 py-5">
       <Container id="products">
         <h1 className="text-center py-3 ">MACHINE INFRASTRUCTURE</h1>
-        <p className="pb-3">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. Lorem Ipsum is simply dummy
-          text of the printing and typesetting industry. Lorem Ipsum has been
-          the industry's standard dummy text ever since the 1500s, when an
-          unknown printer took a galley of type and scrambled it to make a type
-          specimen book.
-        </p>
+        {loading && (
+          <div className="loader-container">
+            <Puff
+              visible={true}
+              height="100"
+              width="100"
+              color="#ff5500"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+        )}
+        <div className={` ${loading ? "m-container-hidden" : "m-container"}`}>
+          <p className="pb-3">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. Lorem Ipsum is simply
+            dummy text of the printing and typesetting industry. Lorem Ipsum has
+            been the industry's standard dummy text ever since the 1500s, when
+            an unknown printer took a galley of type and scrambled it to make a
+            type specimen book.
+          </p>
 
-        <div className="carousel">
-          <Slider {...carouselProperties}>
-            {images.map((val) => {
-              return (
-                <div className="image-container2" key={val.id}>
-                  <Image className="image" src={val.image} alt="" />
-                </div>
-              );
-            })}
-          </Slider>
+          <div className="carousel">
+            <Slider {...carouselProperties}>
+              {images.map((val) => {
+                return (
+                  <div className="image-container2" key={val.id}>
+                    <Image className="image" src={val.image} alt="" />
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
         </div>
       </Container>
     </div>
